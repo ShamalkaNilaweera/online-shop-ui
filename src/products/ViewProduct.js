@@ -7,6 +7,10 @@ export default function ViewProduct() {
 
     const [product,ViewProduct]=useState({
         name:"",
-        price:""
+        price:"",
+        material:"",
+        size:"",
+        color:"",
+        quantity:""
     })
 }

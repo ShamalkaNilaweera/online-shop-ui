@@ -34,7 +34,7 @@ export default function Home() {
         <th scope="row" key={index}>{index+1}</th>
         <td>{product.productName}</td>
         <td>{product.productPrice}</td>
-        <td>{product.colorName}</td>
+        <td>{product.color}</td>
         <td>{product.quantity}</td>
         <td>
             <button className='btn btn-outline-primary mx-2'>View</button>

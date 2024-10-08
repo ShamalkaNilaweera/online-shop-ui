@@ -8,12 +8,13 @@ export default function AddProduct() {
     const [product,setProduct]=useState({
         name:"",
         price:"",
-        quantity:"",
+        material:"",
         size:"",
-        material:""
+        color:"",
+        quantity:""
     })
 
-    const{name,price,quantity,size,material}=product;
+    const{name,price,material,size,color,quantity}=product;
 
     const onInputChange=(event)=>{
         setProduct({...product,[event.target.name]: event.target.value});
@@ -22,7 +23,7 @@ export default function AddProduct() {
     const onSubmit=async(e)=>{
         e.preventDefault();
         try{
-        await axios.post("http://localhost:8081/api/v1/products",{name: name,price: price,color:color,quantity:quantity,size:size,material:material});
+        await axios.post("http://localhost:8081/api/v1/products",{productName: name, price: price, material: material, size: size, quantity: quantity, color: color});
         navigate("/")
         }catch(error){
             console.log(error)
@@ -40,18 +41,18 @@ export default function AddProduct() {
 
                 <label htmlFor='Price' className='form-label'>Item Price</label>
                 <input type='number' className='form-control' placeholder='Enter Item Price' name='price' value={price} onChange={(event)=>onInputChange(event)}></input>
-{/*                 
+
+                <label htmlFor='Material' className='form-label'>Item Material</label>
+                <input type='{text}' className='form-control' placeholder='Enter Material' name='material' value={material} onChange={(event)=>onInputChange(event)}></input>
+
+                <label htmlFor='Size' className='form-label'>Item Size</label>
+                <input type='number' className='form-control' placeholder='Enter Item Size' name='size' value={size} onChange={(event)=>onInputChange(event)}></input>
+
                 <label htmlFor='Color' className='form-label'>Item Color</label>
-                <input type='number' className='form-control' placeholder='Enter Item Color' name='color' value={color} onChange={(event)=>onInputChange(event)}></input> */}
+                <input type='text' className='form-control' placeholder='Enter Item Color' name='color' value={color} onChange={(event)=>onInputChange(event)}></input>
 
                 <label htmlFor='Quantity' className='form-label'>Item Quantity</label>
                 <input type='number' className='form-control' placeholder='Enter Item Quantity' name='quantity'  value={quantity} onChange={(event)=>onInputChange(event)}></input>
-
-                <label htmlFor='Size' className='form-label'>Item Size</label>
-                <input type='text' className='form-control' placeholder='Enter Item Size' name='size'  value={size} onChange={(event)=>onInputChange(event)}></input>
-            
-                <label htmlFor='Quantity' className='form-label'>Item Material</label>
-                <input type='text' className='form-control' placeholder='Enter Item Material' name='material'  value={material} onChange={(event)=>onInputChange(event)}></input>
             </div>
 
             <button type='submit' className='btn btn-outline-primary'>Submit</button>
