@@ -44,9 +44,9 @@ export default function AddProduct() {
 
                 <label htmlFor='Material' className='form-label'>Item Material</label>
                 <input type='{text}' className='form-control' placeholder='Enter Material' name='material' value={material} onChange={(event)=>onInputChange(event)}></input>
-
-                <label htmlFor='Size' className='form-label'>Item Size</label>
-                <input type='number' className='form-control' placeholder='Enter Item Size' name='size' value={size} onChange={(event)=>onInputChange(event)}></input>
+                
+                {/* <label htmlFor='Size' className='form-label'>Item Size</label>
+                <input type='number' className='form-control' placeholder='Enter Item Size' name='size' value={size} onChange={(event)=>onInputChange(event)}></input> */}
 
                 <label htmlFor='Color' className='form-label'>Item Color</label>
                 <input type='text' className='form-control' placeholder='Enter Item Color' name='color' value={color} onChange={(event)=>onInputChange(event)}></input>
