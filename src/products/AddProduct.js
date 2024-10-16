@@ -11,11 +11,11 @@ export default function AddProduct() {
         price:"",
         material:"",
         size:"",
-        color:"",
+        colorId:0,
         quantity:""
     })
 
-    const{name,price,material,size,color,quantity}=product;
+    const{name,price,material,size,colorId,quantity}=product;
 
     const onInputChange=(event)=>{
         setProduct({...product,[event.target.name]: event.target.value});
@@ -24,7 +24,7 @@ export default function AddProduct() {
     const onSubmit=async(e)=>{
         e.preventDefault();
         try{
-        await axios.post("http://localhost:8081/api/v1/products",{productName: name, price: price, material: material, size: size, quantity: quantity, color: color});
+        await axios.post("http://localhost:8081/api/v1/products",{productName: name, price: price, material: material, size: size, quantity: quantity, colorId: colorId});
         navigate("/")
         }catch(error){
             console.log(error)
@@ -76,10 +76,15 @@ export default function AddProduct() {
                 <input type='{text}' className='form-control' placeholder='Enter Material' name='material' value={material} onChange={(event)=>onInputChange(event)}></input>
 
                 <label htmlFor='Size' className='form-label'>Item Size</label>
-                <input type='{text}' className='form-control' placeholder='Enter Item Size' name='size' value={size} onChange={(event)=>onInputChange(event)}></input>
+                <select  className='form-control' placeholder='Enter Item Size' name='size' value={size} onChange={(event)=>onInputChange(event)}>
+                    <option value='KIDS'>KIDS</option>
+                    <option value='S'>S</option>
+                    <option value='M'>M</option>
+                    <option value='L'>L</option>
+                </select>
 
                 <label htmlFor='Color' className='form-label'>Item Color</label>
-                <select className='form-control' placeholder='Select Item Color' name='color' value={color} onChange={(event)=>onInputChange(event)} >
+                <select className='form-control' placeholder='Select Item Color' name='colorId' value={colorId} onChange={(event)=>onInputChange(event)} >
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>
