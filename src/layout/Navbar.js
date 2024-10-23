@@ -13,6 +13,7 @@ export default function
     </button> */}
      
      <Link className='btn btn-outline-light' to="/addProduct"> Add Product</Link>
+     <Link className='btn btn-outline-light' to="/addColor"> Add Color</Link>
   </div>
 </nav>
     </div>
