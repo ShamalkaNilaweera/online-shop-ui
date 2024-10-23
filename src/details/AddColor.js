@@ -70,7 +70,8 @@ export default function AddColor() {
         <th scope="row" key={index}>{index+1}</th>
         <td>{color.color}</td>
         <td>
-            <button className='btn btn-outline-primary mx-2'>View</button>
+            {/* TODO */}
+            {/* <button className='btn btn-outline-primary mx-2'>View</button> */}
             <button className='btn btn-primary mx-2'>Edit</button>
             <button className='btn btn-danger mx-2'>Delete</button>
         </td>
