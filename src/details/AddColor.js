@@ -37,13 +37,16 @@ export default function AddColor() {
 
     const handleDelete = (colorId) => {
         console.log('Delete action triggered!');
-        axios.delete(`http://localhost:8081/api/v1/colors/deleteColor/${colorId}`);
         if (window.confirm("Are you sure you want to delete this item?")) {
+            axios.delete(`http://localhost:8081/api/v1/colors/deleteColor/${colorId}`);
             console.log('Item deleted');
         }
         const newColorList = colors.filter( col => col.colorId !== colorId)
         setColors(newColorList);
-        navigate("/addColor")
+    }
+
+    const handleEdit = (colorId) => {
+        //TODO
     }
 
 
@@ -84,8 +87,8 @@ export default function AddColor() {
         <td>
             {/* TODO */}
             {/* <button className='btn btn-outline-primary mx-2'>View</button> */}
-            <button id={color.colorId} className='btn btn-primary mx-2'> Edit</button>
-            <button id={color.colorId} className='btn btn-danger mx-2' onClick={()=>handleDelete(color.colorId)}>Delete</button>
+            <button  className='btn btn-primary mx-2'onClick={()=>handleEdit(color.colorId)}> Edit</button>
+            <button  className='btn btn-danger mx-2' onClick={()=>handleDelete(color.colorId)}>Delete</button>
         </td>
         </tr>
             
