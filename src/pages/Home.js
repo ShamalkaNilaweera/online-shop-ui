@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 export default function Home() {
   let navigate=useNavigate();
   
@@ -27,6 +26,13 @@ export default function Home() {
       navigate("/")
   }
 
+  const handleEdit = (productId) => {
+    // console.log('Edit action triggered!')
+    // axios.put(`http://localhost:8081/api/v1/products/${productId}`);
+    // const newProductList = products.filter( prod => prod.productId !== productId)
+    // setProducts(newProductList);
+    // navigate("/")
+}
 
   return (
     <div className='container'>
@@ -53,7 +59,7 @@ export default function Home() {
         <td>{product.quantity}</td>
         <td>
             <button className='btn btn-outline-primary mx-2'>View</button>
-            <button className='btn btn-primary mx-2'>Edit</button>
+            <Link className='btn btn-primary mx-2'  to ={`/updateProduct/${product.productId}`}>Edit</Link>
             <button className='btn btn-danger mx-2' onClick={()=>handleDelete(product.productId)}>Delete</button>
         </td>
         </tr>

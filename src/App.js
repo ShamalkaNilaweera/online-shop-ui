@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddProduct from './products/AddProduct';
 import AddColor from './details/AddColor';
+import UpdateProduct from './products/UpdateProduct';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/addProduct" element={<AddProduct/>} />
         <Route exact path="/addColor" element={<AddColor/>}/>
+        <Route exact path="/updateProduct/:id" element={<UpdateProduct/>}/>
       </Routes>
       </Router>
       
