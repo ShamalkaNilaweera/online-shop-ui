@@ -26,14 +26,6 @@ export default function Home() {
       navigate("/")
   }
 
-  const handleEdit = (productId) => {
-    // console.log('Edit action triggered!')
-    // axios.put(`http://localhost:8081/api/v1/products/${productId}`);
-    // const newProductList = products.filter( prod => prod.productId !== productId)
-    // setProducts(newProductList);
-    // navigate("/")
-}
-
   return (
     <div className='container'>
         <div className='py-4'>
@@ -58,7 +50,7 @@ export default function Home() {
         <td>{product.color}</td>
         <td>{product.quantity}</td>
         <td>
-            <button className='btn btn-outline-primary mx-2'>View</button>
+            <Link className='btn btn-outline-primary mx-2' to ={`/viewProduct/${product.productId}`}>View</Link>
             <Link className='btn btn-primary mx-2'  to ={`/updateProduct/${product.productId}`}>Edit</Link>
             <button className='btn btn-danger mx-2' onClick={()=>handleDelete(product.productId)}>Delete</button>
         </td>
