@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateProduct(){
@@ -30,7 +30,7 @@ function UpdateProduct(){
         e.preventDefault();
         try{
           console.log("onsubmit"+ values.price)
-        await axios.put("http://localhost:8081/api/v1/products",{productId: id, productName: values.productName, price: values.price, material: values.material, size: values.size, quantity: values.quantity, color: values.color});
+        await axios.put("http://localhost:8081/api/v1/products",{productId: id, productName: values.productName, price: values.price, material: values.material, size: values.size, quantity: values.quantity, colorId: values.color});
         navigate("/")
         }catch(error){
             console.log(error)
@@ -50,7 +50,11 @@ function UpdateProduct(){
       color:0
     })
 
-    
+    useEffect(()=>{
+      axios.get('http://localhost:8081/api/v1/products/'+id)
+      .then(res=> 
+        console.log(res.data.color.color)
+      )});
     useEffect(()=>{
       axios.get('http://localhost:8081/api/v1/products/'+id)
       .then(res=> 
@@ -131,7 +135,7 @@ function UpdateProduct(){
             </div>
 
             <button type='submit' className='btn btn-outline-primary'>Update</button>
-            <Link className='btn btn-outline-danger mx-2' to={`/`}>Cancel</Link>
+            <button type='submit' className='btn btn-outline-danger mx-2'>Cancel</button>
             </form>
         </div>
         
