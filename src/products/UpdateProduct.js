@@ -16,7 +16,7 @@ function UpdateProduct(){
         price:"",
         material:"",
         size:"",
-        colorId:0,
+        color:0,
         quantity:""
     })
 
@@ -30,7 +30,7 @@ function UpdateProduct(){
         e.preventDefault();
         try{
           console.log("onsubmit"+ values.price)
-        await axios.put("http://localhost:8081/api/v1/products",{productId: id, productName: values.productName, price: values.price, material: values.material, size: values.size, quantity: values.quantity, colorId: values.color});
+        await axios.put("http://localhost:8081/api/v1/products",{productId: id, productName: values.productName, price: values.price, material: values.material, size: values.size, quantity: values.quantity, color: values.color});
         navigate("/")
         }catch(error){
             console.log(error)
