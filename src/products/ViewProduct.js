@@ -17,6 +17,10 @@ export default function ViewProduct() {
         color:0
       })
 
+      const [color, setColor] = useState({
+        colorId:0,
+        color:""
+      })
 
     useEffect(()=>{
         axios.get('http://localhost:8081/api/v1/products/'+id)
@@ -27,13 +31,16 @@ export default function ViewProduct() {
             material : res.data.material,
             size : res.data.size,
             quantity : res.data.quantity,
-            color : res.data.color.colorId
+            color : res.data.color.color
           })
         )
         .catch(err=> console.log(err))
-        
+
       },[])
 
+ 
+
+       
 
       return(
         <div className='container'>
@@ -54,9 +61,8 @@ export default function ViewProduct() {
                 <p>{values.size}</p>
 
                 <label>Item Color</label>
-                <p>{values.color.colorId} </p>
-                {console.log(values.color.colorId)}
-    
+                <p>{values.color} </p>
+                
                 <label>Item Quantity</label>
                 <p>{values.quantity} </p>
             </div>

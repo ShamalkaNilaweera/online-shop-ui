@@ -50,11 +50,11 @@ function UpdateProduct(){
       color:0
     })
 
-    useEffect(()=>{
-      axios.get('http://localhost:8081/api/v1/products/'+id)
-      .then(res=> 
-        console.log(res.data.color.color)
-      )});
+    // useEffect(()=>{
+    //   axios.get('http://localhost:8081/api/v1/products/'+id)
+    //   .then(res=> 
+    //     console.log(res.data.color.color)
+    //   )});
     useEffect(()=>{
       axios.get('http://localhost:8081/api/v1/products/'+id)
       .then(res=> 
@@ -120,11 +120,13 @@ function UpdateProduct(){
 
                 <label htmlFor='Color' className='form-label'>Item Color</label>
                 {/* TODO */}
-                <select className='form-control' placeholder='Select Item Color' name='colorId' value={values.color.color} onChange={e=> setValues({...values, color : e.target.value})} >
+                <select className='form-control' name='colorId' value={values.color} onChange={e=> setValues({...values, color : e.target.value})} >
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>
+        
               {option.key}
+
             </option>
           );
         })}
