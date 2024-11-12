@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddProduct from './products/AddProduct';
 import AddColor from './details/AddColor';
 import UpdateProduct from './products/UpdateProduct';
-import ViewProduct from './products/ViewProduct'
+import ViewProduct from './products/ViewProduct';
+import UploadProdImg from './products/UploadProdImg';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/addColor" element={<AddColor/>}/>
         <Route exact path="/updateProduct/:id" element={<UpdateProduct/>}/>
         <Route exact path="/viewProduct/:id" element={<ViewProduct/>}/>
+        <Route exact path="/uploadProdImg/:id" element={<UploadProdImg/>}/>
       </Routes>
       </Router>
       

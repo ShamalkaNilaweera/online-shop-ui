@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import {Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function UpdateProduct(){
@@ -137,7 +137,7 @@ function UpdateProduct(){
             </div>
 
             <button type='submit' className='btn btn-outline-primary'>Update</button>
-            <button type='submit' className='btn btn-outline-danger mx-2'>Cancel</button>
+            <Link className='btn btn-outline-danger mx-2' to={`/`}>Cancel</Link>
             </form>
         </div>
         

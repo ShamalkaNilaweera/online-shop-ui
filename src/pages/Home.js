@@ -50,6 +50,7 @@ export default function Home() {
         <td>{product.color}</td>
         <td>{product.quantity}</td>
         <td>
+            <Link className='btn btn-outline-primary mx-2' to ={`/uploadProdImg/${product.productId}`}>Upload Image</Link>
             <Link className='btn btn-outline-primary mx-2' to ={`/viewProduct/${product.productId}`}>View</Link>
             <Link className='btn btn-primary mx-2'  to ={`/updateProduct/${product.productId}`}>Edit</Link>
             <button className='btn btn-danger mx-2' onClick={()=>handleDelete(product.productId)}>Delete</button>
